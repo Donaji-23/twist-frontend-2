@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Twists</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Inicialización de Firebase y Firestore -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+    import {
+      getFirestore,
+      collection,
+      doc,
+      setDoc,
+      onSnapshot,
+      updateDoc
+    } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnYMalh959l0jXmfXr7ZZx5fQSS5cAZyo",
+      authDomain: "twistapp-b04b6.firebaseapp.com",
+      projectId: "twistapp-b04b6",
+      storageBucket: "twistapp-b04b6.firebasestorage.app",
+      messagingSenderId: "404158801947",
+      appId: "1:404158801947:web:c455a7c23a7b16434870be",
+      measurementId: "G-2842RLXL9J"
+    };
+
+    // Inicializa Firebase App y Analytics
+    const app = initializeApp(firebaseConfig);
+    getAnalytics(app);
+
+    // Inicializa Firestore y expone referencias para main.js
+    const db = getFirestore(app);
+    window.db = db;
+    window.firebaseFns = { collection, doc, setDoc, onSnapshot, updateDoc };
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Desarrollo FrontEnd</h1>
+
+    <textarea
+      id="twistInput"
+      placeholder="¿Qué opinas sobre el uso de TypeScript en proyectos front?... (máx 280 caracteres)"
+      maxlength="280"
+    ></textarea>
+
+    <div class="buttons">
+      <button id="publishBtn">Publicar Twist</button>
+      <button id="newThreadBtn">Nuevo Hilo</button>
+    </div>
+
+    <section id="twistContainer"></section>
+  </main>
+
+  <!-- Carga main.js como módulo, que usará window.db y window.firebaseFns -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>
