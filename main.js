@@ -11,9 +11,9 @@ const newThreadBtn = document.getElementById("newThreadBtn");
 const twistContainer = document.getElementById("twistContainer");
 
 // Estado actual
-let currentThread = null;    // <div class="twist-list"> del hilo seleccionado
-let currentThreadId = null;  // ID de Firestore del hilo seleccionado
-const threads = {};          // { [threadId]: { twistList: HTMLElement, title: HTMLElement } }
+let currentThread = null; // <div class="twist-list"> del hilo seleccionado
+let currentThreadId = null; // ID de Firestore del hilo seleccionado
+const threads = {}; // { [threadId]: { twistList: HTMLElement, title: HTMLElement } }
 
 // ——— Función para alternar icono ▶️/▼ ———
 function updateIcon(titleElem) {
