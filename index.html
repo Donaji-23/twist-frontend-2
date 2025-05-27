@@ -184,7 +184,7 @@
 
           const title = document.createElement("h3");
           title.className = "thread-title text-sm font-semibold text-blue-400 cursor-pointer flex items-center";
-          title.textContent = `▶ Hilo (${threadData.twists.length} twists)`;
+          title.textContent = ▶ Hilo (${threadData.twists.length} twists);
 
           const titleWrapper = document.createElement("div");
           titleWrapper.className = "flex justify-between items-center mb-2";
@@ -234,7 +234,7 @@
       const titleElem = threadDiv.querySelector(".thread-title");
       const count = currentThread.children.length;
       const icon = titleElem.textContent.startsWith("▼") ? "▼" : "▶";
-      titleElem.textContent = `${icon} Hilo (${count} twists)`;
+      titleElem.textContent = ${icon} Hilo (${count} twists);
 
       twistInput.value = "";
       await updateThreadInFirestore(currentThreadId);
